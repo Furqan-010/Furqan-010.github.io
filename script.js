@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("Message sent successfully!");
       contactForm.reset();
     });
   }
