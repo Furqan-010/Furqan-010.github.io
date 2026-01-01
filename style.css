@@ -1,0 +1,420 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0b0b0b;
+    color: #ffffff;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+/* Normal nav links (Home, My Work) */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect ONLY for Home & My Work */
+.nav-link:hover {
+    color: #ff4d4d;
+}
+
+/* Underline animation */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #ff4d4d;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hire Me CTA (NO hover effects added intentionally) */
+.cta {
+    margin-left: 25px;
+    background: #ff4d4d;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    background: #1f1f1f;
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+    background: #ff4d4d;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    background: #ff4d4d;
+}
+
+/* Outline button */
+.btn.outline {
+    background: transparent;
+    border: 2px solid white;
+}
+
+.btn.outline:hover {
+    background: #ff4d4d;
+    border-color: #ff4d4d;
+}
+
+/* =========================
+   SKILLS
+========================= */
+.skills {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.skills-grid div {
+    padding: 20px;
+    background: #161616;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.skills-grid div:hover {
+    background: #ff4d4d;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.35);
+}
+
+/* Click feedback */
+.skills-grid div:active {
+    transform: scale(0.97);
+}
+
+/* =========================
+   WORK
+========================= */
+.work {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+/* GRID */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+}
+
+/* GAME CARD */
+.game-card {
+    background: #161616;
+    border-radius: 20px;
+    /* MORE ROUNDED */
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+}
+
+/* IMAGE AREA */
+.card-media {
+    position: relative;
+    background: #000;
+}
+
+.card-media img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* LOGO OVERLAY */
+.game-logo {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    overflow: hidden;
+    /* IMPORTANT */
+    background: #7b2c3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* FIX */
+}
+
+/* INFO AREA (EQUAL HEIGHT FIX) */
+.card-info {
+    background: #e6e6e6;
+    color: #000;
+
+    padding: 55px 22px 24px;
+    text-align: center;
+
+    flex: 1;
+    /* KEY FIX */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* TITLE */
+.card-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* DESCRIPTION */
+.card-info p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+/* PLATFORM TEXT LOCKED TO BOTTOM */
+.card-info span {
+    margin-top: auto;
+    /* KEY FIX */
+    font-size: 0.85rem;
+    font-weight: bold;
+    opacity: 0.85;
+}
+
+.more-work {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin: 10px 0;
+    padding: 12px;
+}
+
+.contact-form button {
+    padding: 12px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #000;
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 25px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #111;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .nav-links a {
+        padding: 15px;
+        margin: 0;
+        border-bottom: 1px solid #222;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) {
+    .skills-grid div:hover {
+        background: #161616;
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* Large laptops */
+@media (max-width: 1200px) {
+    .work-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+}
