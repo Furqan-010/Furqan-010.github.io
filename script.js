@@ -1,14 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* CONTACT FORM */
-  const contactForm = document.querySelector(".contact-form");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      contactForm.reset();
-    });
-  }
-
   /* MOBILE NAV TOGGLE */
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
