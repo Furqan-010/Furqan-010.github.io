@@ -354,6 +354,54 @@ body {
     transform: translateY(-3px);
 }
 
+.footer {
+    background: #ff4d4d;
+    /* Your accent color */
+    padding: 20px 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer p {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.4rem;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   MOBILE FOOTER
+========================= */
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+
 /* Mobile optimization */
 @media (max-width: 480px) {
     .social-links {
