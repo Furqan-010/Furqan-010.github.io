@@ -1,4 +1,6 @@
-/* RESET */
+/* =========================
+   RESET & BASE
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -36,27 +38,24 @@ body {
     align-items: center;
 }
 
-/* Normal nav links (Home, My Work) */
 .nav-link {
-    color: white;
+    color: #fff;
     text-decoration: none;
     margin-left: 25px;
     position: relative;
     transition: color 0.3s ease;
 }
 
-/* Hover effect ONLY for Home & My Work */
 .nav-link:hover {
     color: #ff4d4d;
 }
 
-/* Underline animation */
 .nav-link::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -6px;
-    width: 0%;
+    width: 0;
     height: 2px;
     background: #ff4d4d;
     transition: width 0.3s ease;
@@ -66,18 +65,18 @@ body {
     width: 100%;
 }
 
-/* Hire Me CTA (NO hover effects added intentionally) */
+/* CTA */
 .cta {
     margin-left: 25px;
     background: #ff4d4d;
     padding: 8px 16px;
     border-radius: 5px;
-    color: white;
+    color: #fff;
     text-decoration: none;
 }
 
 /* =========================
-   HERO SECTION
+   HERO
 ========================= */
 .hero {
     height: 100vh;
@@ -89,8 +88,7 @@ body {
 
 .bg-video {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     object-fit: cover;
     z-index: -1;
 }
@@ -116,7 +114,7 @@ body {
 .btn {
     background: #1f1f1f;
     padding: 12px 24px;
-    color: white;
+    color: #fff;
     text-decoration: none;
     border-radius: 5px;
     margin: 10px;
@@ -124,23 +122,21 @@ body {
     transition: background 0.3s ease, transform 0.15s ease;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:active {
     background: #ff4d4d;
 }
 
 .btn:active {
     transform: scale(0.95);
-    background: #ff4d4d;
 }
 
-/* Outline button */
 .btn.outline {
     background: transparent;
-    border: 2px solid white;
+    border: 2px solid #fff;
 }
 
 .btn.outline:hover {
-    background: #ff4d4d;
     border-color: #ff4d4d;
 }
 
@@ -166,27 +162,24 @@ body {
     transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect */
 .skills-grid div:hover {
     background: #ff4d4d;
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(255, 77, 77, 0.35);
 }
 
-/* Click feedback */
 .skills-grid div:active {
     transform: scale(0.97);
 }
 
 /* =========================
-   WORK
+   WORK GRID
 ========================= */
 .work {
     padding: 80px 40px;
     text-align: center;
 }
 
-/* GRID */
 .work-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -194,110 +187,12 @@ body {
     margin-top: 40px;
 }
 
-/* GAME CARD */
-.game-card {
-    background: #161616;
-    border-radius: 20px;
-    /* MORE ROUNDED */
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.game-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
-}
-
-/* IMAGE AREA */
-.card-media {
-    position: relative;
-    background: #000;
-}
-
-.card-media img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-/* LOGO OVERLAY */
-.game-logo {
-    position: absolute;
-    bottom: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 72px;
-    height: 72px;
-    border-radius: 14px;
-    overflow: hidden;
-    /* IMPORTANT */
-    background: #7b2c3d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.game-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* FIX */
-}
-
-/* INFO AREA (EQUAL HEIGHT FIX) */
-.card-info {
-    background: #e6e6e6;
-    color: #000;
-
-    padding: 55px 22px 24px;
-    text-align: center;
-
-    flex: 1;
-    /* KEY FIX */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* TITLE */
-.card-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-/* DESCRIPTION */
-.card-info p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 16px;
-}
-
-/* PLATFORM TEXT LOCKED TO BOTTOM */
-.card-info span {
-    margin-top: auto;
-    /* KEY FIX */
-    font-size: 0.85rem;
-    font-weight: bold;
-    opacity: 0.85;
-}
-
-.more-work {
-    margin-top: 50px;
-    text-align: center;
-}
-
 /* =========================
-   FLIP CARD SYSTEM
+   GAME CARD / FLIP SYSTEM
 ========================= */
-
 .game-card {
-    perspective: 1200px;
     height: 320px;
+    perspective: 1200px;
     cursor: pointer;
 }
 
@@ -309,12 +204,10 @@ body {
     transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-/* Flip on click OR hover */
 .game-card:hover .card-inner {
     transform: rotateY(180deg);
 }
 
-/* FRONT & BACK BASE */
 .card-front,
 .card-back {
     position: absolute;
@@ -324,10 +217,7 @@ body {
     backface-visibility: hidden;
 }
 
-/* =========================
-   FRONT SIDE
-========================= */
-
+/* FRONT */
 .card-front {
     background: #000;
 }
@@ -336,33 +226,27 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: blur(3px);
+    transform: scale(1.05);
 }
 
-/* Game title overlay */
 .card-title {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 18px;
-    font-size: 1.2rem;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
     font-weight: bold;
-    text-align: center;
-
-    background: linear-gradient(to top,
-            rgba(0, 0, 0, 0.85),
-            rgba(0, 0, 0, 0));
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
 }
 
-/* =========================
-   BACK SIDE
-========================= */
-
+/* BACK */
 .card-back {
     background: #161616;
-    color: #ffffff;
     padding: 26px;
     transform: rotateY(180deg);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -371,13 +255,11 @@ body {
 
 .card-back h3 {
     margin-bottom: 12px;
-    font-size: 1.25rem;
 }
 
 .card-back p {
-    font-size: 0.95rem;
-    line-height: 1.5;
     margin-bottom: 18px;
+    line-height: 1.5;
 }
 
 .card-back span {
@@ -410,65 +292,45 @@ body {
 .contact-form button {
     padding: 12px;
     background: #ff4d4d;
-    color: white;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
 
 /* =========================
-   FOOTER (LEFT / RIGHT)
+   FOOTER
 ========================= */
 footer.footer {
-    background-color: #ff4d4d;
-    /* your chosen color */
+    background: #ff4d4d;
     padding: 20px 40px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* LEFT SIDE TEXT */
 footer.footer p {
-    margin: 0;
-    color: #ffffff;
     font-size: 0.9rem;
     white-space: nowrap;
 }
 
-/* RIGHT SIDE ICONS */
-footer.footer .social-links {
+.social-links {
     display: flex;
-    align-items: center;
     gap: 22px;
 }
 
-/* ICON STYLES */
-footer.footer .social-links a {
-    color: #ffffff;
+.social-links a {
+    color: #fff;
     font-size: 1.4rem;
-    text-decoration: none;
     transition: transform 0.2s ease, color 0.3s ease;
 }
 
-footer.footer .social-links a:hover {
-    color: #000000;
+.social-links a:hover {
+    color: #000;
     transform: translateY(-3px);
 }
 
 /* =========================
-   MOBILE (STACK VERTICALLY)
-========================= */
-@media (max-width: 600px) {
-    footer.footer {
-        flex-direction: column;
-        gap: 14px;
-        text-align: center;
-    }
-}
-
-/* =========================
-   MOBILE NAV
+   RESPONSIVE
 ========================= */
 .menu-toggle {
     display: none;
@@ -476,7 +338,19 @@ footer.footer .social-links a:hover {
     cursor: pointer;
 }
 
-/* Responsive */
+/* Breakpoints */
+@media (max-width: 1200px) {
+    .work-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 25px;
@@ -504,7 +378,6 @@ footer.footer .social-links a:hover {
 
     .nav-links a {
         padding: 15px;
-        margin: 0;
         border-bottom: 1px solid #222;
     }
 
@@ -513,56 +386,31 @@ footer.footer .social-links a:hover {
     }
 }
 
-/* Disable hover effects on touch devices */
+@media (max-width: 600px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer.footer {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+    }
+}
+
+/* Disable hover on touch */
 @media (hover: none) {
     .skills-grid div:hover {
         background: #161616;
         transform: none;
         box-shadow: none;
     }
-}
 
-@media (hover: none) {
     .game-card:hover .card-inner {
         transform: none;
     }
 
     .game-card:active .card-inner {
         transform: rotateY(180deg);
-    }
-}
-
-/* Large laptops */
-@media (max-width: 1200px) {
-    .work-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Tablets */
-@media (max-width: 900px) {
-    .work-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .work-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Tablets */
-@media (max-width: 1024px) {
-    .work-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .work-grid {
-        grid-template-columns: 1fr;
     }
 }
